@@ -1,0 +1,6 @@
+export { DashboardPage } from './DashboardPage'
+export { ProductsPage } from './ProductsPage'
+export { UsersPage } from './UsersPage'
+export { AnalyticsPage } from './AnalyticsPage'
+export { ReportsPage } from './ReportsPage'
+export { SettingsPage } from './SettingsPage'
