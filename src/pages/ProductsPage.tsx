@@ -25,7 +25,7 @@ const columns: ColumnDef<Product>[] = [
         <div className="h-10 w-10 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-lg flex items-center justify-center text-white text-sm font-bold shadow-md-green">
           {info.getValue<string>().charAt(0)}
         </div>
-        <span className="font-medium text-emerald-900 dark:text-emerald-300">{info.getValue()}</span>
+        <span className="font-medium text-emerald-900 dark:text-emerald-300">{info.getValue<string>()}</span>
       </div>
     ),
   },

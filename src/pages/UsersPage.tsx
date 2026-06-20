@@ -26,7 +26,7 @@ const columns: ColumnDef<User>[] = [
             .map((n) => n[0])
             .join('')}
         </div>
-        {info.getValue()}
+        {info.getValue<string>()}
       </div>
     ),
   },
@@ -38,7 +38,7 @@ const columns: ColumnDef<User>[] = [
         href={`mailto:${info.getValue()}`}
         className="text-primary-600 dark:text-primary-400 hover:underline"
       >
-        {info.getValue()}
+        {info.getValue<string>()}
       </a>
     ),
   },

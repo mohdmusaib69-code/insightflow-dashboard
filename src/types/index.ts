@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 // Dashboard Types and Interfaces
 
 export type DateRange = {
@@ -20,8 +22,8 @@ export interface MetricCard {
 }
 
 export interface ChartDataPoint {
-  name: string
-  value: number
+  name?: string
+  value?: number
   [key: string]: any
 }
 
@@ -94,7 +96,7 @@ export interface ExportFormat {
 export interface NavigationItem {
   id: string
   label: string
-  icon: string
+  icon: ReactNode
   href: string
   badge?: number
 }
