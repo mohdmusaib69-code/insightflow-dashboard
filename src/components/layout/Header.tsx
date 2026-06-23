@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useUIStore } from '@/store'
-import clsx from 'clsx'
 import {
   Menu,
   X,
@@ -12,7 +11,6 @@ import {
   LogOut,
   MoreVertical,
 } from 'lucide-react'
-import { Button } from '@/components/ui'
 
 interface HeaderProps {
   showSidebarToggle?: boolean

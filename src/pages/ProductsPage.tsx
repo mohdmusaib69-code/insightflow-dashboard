@@ -14,7 +14,7 @@ import { useFilterStore } from '@/store'
 import { formatCurrency, exportToCSV, exportToJSON } from '@/utils/formatting'
 import { ColumnDef } from '@tanstack/react-table'
 import { Product } from '@/types'
-import { Download, Filter } from 'lucide-react'
+import { Download } from 'lucide-react'
 
 const columns: ColumnDef<Product>[] = [
   {
@@ -79,7 +79,6 @@ const columns: ColumnDef<Product>[] = [
 
 export const ProductsPage: React.FC = () => {
   const { filters } = useFilterStore()
-  const [selectedProducts, setSelectedProducts] = React.useState<Product[]>([])
 
   const filteredProducts = useMemo(() => {
     return mockProducts.filter((product) => {

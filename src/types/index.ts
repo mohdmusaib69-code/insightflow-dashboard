@@ -24,7 +24,7 @@ export interface MetricCard {
 export interface ChartDataPoint {
   name?: string
   value?: number
-  [key: string]: any
+  [key: string]: string | number | undefined
 }
 
 export interface RevenueData {
@@ -32,6 +32,7 @@ export interface RevenueData {
   revenue: number
   target: number
   growth?: number
+  [key: string]: string | number | undefined
 }
 
 export interface UserGrowth {
@@ -39,12 +40,14 @@ export interface UserGrowth {
   users: number
   activeUsers: number
   newUsers: number
+  [key: string]: string | number | undefined
 }
 
 export interface TrafficSource {
   name: string
   value: number
   percentage?: number
+  [key: string]: string | number | undefined
 }
 
 export interface Product {

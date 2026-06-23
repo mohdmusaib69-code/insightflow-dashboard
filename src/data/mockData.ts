@@ -6,6 +6,7 @@ import {
   User,
   Analytics,
   ChartDataPoint,
+  Status,
 } from '@/types'
 import { format, subDays } from 'date-fns'
 
@@ -233,6 +234,8 @@ export const mockSatisfactionData: ChartDataPoint[] = [
 ]
 
 export const generateMockProducts = (count: number): Product[] => {
+  const statuses: Status[] = ['active', 'inactive', 'pending']
+
   return Array.from({ length: count }, (_, i) => ({
     id: String(i + 1),
     name: `Product ${i + 1}`,
@@ -241,7 +244,7 @@ export const generateMockProducts = (count: number): Product[] => {
     sales: Math.floor(Math.random() * 3000) + 100,
     revenue: Math.floor(Math.random() * 500000) + 50000,
     stock: Math.floor(Math.random() * 1000),
-    status: ['active', 'inactive', 'pending'][Math.floor(Math.random() * 3)] as any,
+    status: statuses[Math.floor(Math.random() * statuses.length)],
     lastUpdated: format(subDays(new Date(), Math.floor(Math.random() * 30)), 'yyyy-MM-dd'),
   }))
 }

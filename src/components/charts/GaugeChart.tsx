@@ -68,7 +68,7 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
             dy="0.3em"
             className="fill-gray-900 dark:fill-white font-bold text-xl"
           >
-            {Math.round(percentage)}%
+            {showPercentage ? `${Math.round(percentage)}%` : value}
           </text>
         </svg>
       </div>

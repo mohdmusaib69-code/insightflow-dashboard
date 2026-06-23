@@ -11,7 +11,7 @@ import {
 import { mockUsers } from '@/data/mockData'
 import { ColumnDef } from '@tanstack/react-table'
 import { User } from '@/types'
-import { Download, Mail, Phone } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { format } from 'date-fns'
 
 const columns: ColumnDef<User>[] = [

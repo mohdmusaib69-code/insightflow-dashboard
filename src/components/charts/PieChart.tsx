@@ -17,7 +17,7 @@ interface PieChartProps {
   nameKey?: string
   height?: number
   loading?: boolean
-  onClick?: (data: any) => void
+  onClick?: (data: unknown) => void
   showLegend?: boolean
 }
 
@@ -50,6 +50,7 @@ export const PieChart: React.FC<PieChartProps> = ({
             outerRadius={100}
             fill="#8884d8"
             dataKey={dataKey}
+            nameKey={nameKey}
           >
             {data.map((_, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />

@@ -105,13 +105,13 @@ export const delay = (ms: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export const debounce = <T extends (...args: any[]) => any>(
-  func: T,
+export const debounce = <TArgs extends unknown[]>(
+  func: (...args: TArgs) => void,
   wait: number,
-): ((...args: Parameters<T>) => void) => {
+): ((...args: TArgs) => void) => {
   let timeout: NodeJS.Timeout | null = null
 
-  return (...args: Parameters<T>) => {
+  return (...args: TArgs) => {
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => func(...args), wait)
   }
@@ -132,13 +132,13 @@ export const groupByProperty = <T, K extends keyof T>(
   )
 }
 
-export const exportToCSV = (
-  data: any[],
+export const exportToCSV = <T extends object>(
+  data: T[],
   filename = 'export.csv',
 ): void => {
   if (!data || data.length === 0) return
 
-  const headers = Object.keys(data[0])
+  const headers = Object.keys(data[0]) as Array<keyof T>
   const rows = data.map((item) =>
     headers.map((header) => {
       const value = item[header]
@@ -150,7 +150,7 @@ export const exportToCSV = (
   )
 
   const csv = [
-    headers.join(','),
+    headers.map(String).join(','),
     ...rows.map((row) => row.join(',')),
   ].join('\n')
 
@@ -167,8 +167,8 @@ export const exportToCSV = (
   document.body.removeChild(link)
 }
 
-export const exportToJSON = (
-  data: any[],
+export const exportToJSON = <T>(
+  data: T[],
   filename = 'export.json',
 ): void => {
   const json = JSON.stringify(data, null, 2)

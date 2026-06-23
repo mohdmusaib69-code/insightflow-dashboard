@@ -8,10 +8,8 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  Cell,
 } from 'recharts'
 import { ChartDataPoint } from '@/types'
-import clsx from 'clsx'
 
 interface BarChartProps {
   data: ChartDataPoint[]
@@ -23,7 +21,7 @@ interface BarChartProps {
   xAxisKey?: string
   height?: number
   loading?: boolean
-  onClick?: (data: any) => void
+  onClick?: (data: unknown) => void
 }
 
 export const BarChart: React.FC<BarChartProps> = ({

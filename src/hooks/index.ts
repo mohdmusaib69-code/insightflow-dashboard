@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useFilterStore } from '@/store'
 import { debounce } from '@/utils/formatting'
 
@@ -9,8 +9,8 @@ export const useSearch = (defaultValue = '') => {
   const [searchTerm, setSearchTerm] = useState(defaultValue)
   const { setSearchQuery } = useFilterStore()
 
-  const handleSearch = useCallback(
-    debounce((value: string) => {
+  const handleSearch = useMemo(
+    () => debounce((value: string) => {
       setSearchQuery(value || undefined)
     }, 300),
     [setSearchQuery],
@@ -47,7 +47,7 @@ export const useLoading = (initialState = false) => {
 /**
  * Hook for pagination
  */
-export const usePagination = (items: any[], pageSize = 10) => {
+export const usePagination = <T,>(items: T[], pageSize = 10) => {
   const [currentPage, setCurrentPage] = useState(1)
 
   const totalPages = Math.ceil(items.length / pageSize)

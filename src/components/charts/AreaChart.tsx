@@ -21,7 +21,7 @@ interface AreaChartProps {
   xAxisKey?: string
   height?: number
   loading?: boolean
-  onClick?: (data: any) => void
+  onClick?: (data: unknown) => void
   stacked?: boolean
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardLayout, Card, CardHeader, CardBody, Button } from '@/components'
+import { DashboardLayout, Card, Button } from '@/components'
 import { Download, Share2, Eye } from 'lucide-react'
 
 interface Report {

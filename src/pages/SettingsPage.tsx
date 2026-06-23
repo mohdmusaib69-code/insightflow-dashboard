@@ -1,7 +1,7 @@
 import React from 'react'
-import { DashboardLayout, Card, CardHeader, CardBody, Button, Input, Select } from '@/components'
+import { DashboardLayout, Card, CardHeader, CardBody, Button, Input } from '@/components'
 import { useUIStore } from '@/store'
-import { Save, Bell, Lock, User, Palette } from 'lucide-react'
+import { Save, Bell, Lock, Palette } from 'lucide-react'
 
 export const SettingsPage: React.FC = () => {
   const { darkMode, toggleDarkMode } = useUIStore()

@@ -23,18 +23,21 @@ interface DataTableProps<TData, TValue> {
   searchPlaceholder?: string
 }
 
-export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any, any>>(
-  (
-    {
-      columns,
-      data,
-      loading = false,
-      onRowClick,
-      pageSize = 10,
-      searchPlaceholder,
-    },
-    ref,
-  ) => {
+type DataTableComponent = <TData, TValue>(
+  props: DataTableProps<TData, TValue> & React.RefAttributes<HTMLDivElement>,
+) => React.ReactElement | null
+
+const DataTableBase = React.forwardRef(function DataTableInner<TData, TValue>(
+  {
+    columns,
+    data,
+    loading = false,
+    onRowClick,
+    pageSize = 10,
+    searchPlaceholder,
+  }: DataTableProps<TData, TValue>,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
     const [globalFilter, setGlobalFilter] = React.useState('')
@@ -60,6 +63,14 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any, an
         },
       },
     })
+
+    if (loading) {
+      return (
+        <div ref={ref} className="w-full">
+          <div className="h-64 rounded-lg bg-gray-200 dark:bg-slate-700 animate-pulse" />
+        </div>
+      )
+    }
 
     return (
       <div ref={ref} className="w-full">
@@ -160,7 +171,8 @@ export const DataTable = React.forwardRef<HTMLDivElement, DataTableProps<any, an
         </div>
       </div>
     )
-  },
-)
+})
 
-DataTable.displayName = 'DataTable'
+DataTableBase.displayName = 'DataTable'
+
+export const DataTable = DataTableBase as DataTableComponent

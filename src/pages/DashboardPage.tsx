@@ -9,7 +9,6 @@ import {
   PieChart,
   AreaChart,
   Button,
-  Badge,
 } from '@/components'
 import {
   mockRevenueData,
@@ -20,7 +19,7 @@ import {
   mockMonthlyComparisonData,
 } from '@/data/mockData'
 import { useFilterStore } from '@/store'
-import { formatCurrency, formatNumber, formatPercent, getChangeColor } from '@/utils/formatting'
+import { formatCurrency, formatNumber, formatPercent } from '@/utils/formatting'
 import {
   TrendingUp,
   Users,
@@ -32,7 +31,7 @@ import {
 import { format } from 'date-fns'
 
 export const DashboardPage: React.FC = () => {
-  const { filters, setDateRange } = useFilterStore()
+  const { filters } = useFilterStore()
   const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month' | 'quarter' | 'year'>('month')
 
   const metrics = [

@@ -21,7 +21,7 @@ interface LineChartProps {
   xAxisKey?: string
   height?: number
   loading?: boolean
-  onClick?: (data: any) => void
+  onClick?: (data: unknown) => void
   smooth?: boolean
 }
 

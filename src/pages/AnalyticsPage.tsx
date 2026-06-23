@@ -6,7 +6,6 @@ import {
   CardBody,
   LineChart,
   BarChart,
-  AreaChart,
   ProgressGauge,
   Button,
 } from '@/components'
@@ -16,12 +15,10 @@ import {
   mockSatisfactionData,
   mockGoalCompletionData,
 } from '@/data/mockData'
-import { useFilterStore } from '@/store'
 import { Select } from '@/components/ui'
-import { Calendar, Download } from 'lucide-react'
+import { Download } from 'lucide-react'
 
 export const AnalyticsPage: React.FC = () => {
-  const { filters } = useFilterStore()
   const [selectedMetric, setSelectedMetric] = useState('revenue')
 
   const metricOptions = [
